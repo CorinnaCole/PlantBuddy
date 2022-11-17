@@ -25,6 +25,7 @@ width: 100%;
 height: 35px;
 font-size: 1em;
 margin-bottom: 0.5em;
+text-align: center;
 @media (max-width: 450px) {
   display:flex;
   width: auto;

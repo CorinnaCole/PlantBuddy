@@ -3,7 +3,7 @@ import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from '@cloudinary/url-gen';
 import Tilt from "react-parallax-tilt";
 import { HeaderContainer, TitleHeader, LogoHolder } from './Styled/styles.jsx';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaWindowClose } from 'react-icons/fa';
 import axios from 'axios';
 // import { CardType } from "../../Types";
 import {
@@ -16,7 +16,8 @@ import {
   CardStatWrapper,
   CardStats,
   LinkText,
-  CardImageDiv
+  CardImageDiv,
+  CardDelete
 } from "./Styled/Cards.styled.jsx";
 
 
@@ -25,14 +26,14 @@ export const Card = ({ plant }) => {
   return (
     <Tilt>
       <CardWrapper>
+      {/* <CardDelete><FaWindowClose/></CardDelete> */}
         <CardImageDiv>
           <CardImage src={plant.myImage} />
+
         </CardImageDiv>
         <CardTextWrapper>
-          {/* <CardTextDate>{date} days ago</CardTextDate> */}
           <CardTextTitle>"{plant.firstName}"</CardTextTitle>
           <CardTextTitle>{plant.commonName}</CardTextTitle>
-          {/* <CardTextTitle>{scientificName}</CardTextTitle> */}
           <CardTextBody>
             {plant.wikiSummary}
           </CardTextBody>

@@ -4,12 +4,25 @@ const CardWrapper = styled.div`
   display: grid;
   margin: 25px;
   grid-template-columns: 375px;
-  grid-template-rows: 210px 250px 80px;
+  grid-template-rows: 210px 300px 80px;
   grid-template-areas: "image" "text" "stats";
   border-radius: 18px;
   background: white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
+  svg {
+    visibility: hidden;
+  }
+  &: hover {
+    svg {
+      visibility: visible;
+      stroke: #333;
+      stroke-width: 20px;
+      fill: white;
+      font-size: 2em;
+      margin: 6px;
+  }
+  }
 `;
 // { background: string }
 // background-image: url(${({ background }) => background});
@@ -20,8 +33,14 @@ const CardImage = styled.img`
   height: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-
 `;
+
+const CardDelete = styled.div`
+grid-area: image;
+z-index: 2;
+margin-left: auto;
+`;
+
 const CardImageDiv = styled.div`
   grid-area: image;
   border-top-left-radius: 15px;
@@ -92,6 +111,7 @@ font-family: 'MuseoModerno', cursive;
 `;
 
 
+
 export {
   CardWrapper,
   CardImage,
@@ -102,5 +122,6 @@ export {
   CardStatWrapper,
   CardStats,
   LinkText,
-  CardImageDiv
+  CardImageDiv,
+  CardDelete
 }
