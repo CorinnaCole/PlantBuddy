@@ -36,16 +36,17 @@ const PlantModal = ({ postMyPlants, handleModal, modalOpen }) => {
   // aria-labelledby="modal-label"
 
   return (
-    <div>
-      {/* <FocusLock>
+
+      // <FocusLock>
         <StyledModal
           // onEscapeKeydown={handleModal}
+          isOpen={modalOpen}
           role="dialog"
           aria-modal={true}
           aria-labelledby="imAPlant"
-        > */}
+        >
           <p id={'imAPlant'}>I'm a plant</p>
-          <ImageUploading
+          {/* <ImageUploading
             multiple
             value={images}
             onChange={onChange}
@@ -82,7 +83,7 @@ const PlantModal = ({ postMyPlants, handleModal, modalOpen }) => {
 
                     <div className="image-item__btn-wrapper">
                       {/* <button onClick={() => onImageUpdate(index)}>Update</button> */}
-                      <button onClick={() => onImageRemove(index)}>Remove</button>
+                      {/* <button onClick={() => onImageRemove(index)}>Remove</button>
                     </div>
 
                   </div>
@@ -91,11 +92,11 @@ const PlantModal = ({ postMyPlants, handleModal, modalOpen }) => {
               </div>
 
             )}
-          </ImageUploading>
+          </ImageUploading>  */}
 
-        {/* </StyledModal>
-      </FocusLock> */}
-    </div>
+        </StyledModal>
+      // {/* </FocusLock> */}
+
 
   )
 }

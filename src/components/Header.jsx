@@ -1,46 +1,31 @@
-import React, {useState, useEffect} from 'react';
-import { AdvancedImage } from '@cloudinary/react';
-import { Cloudinary } from '@cloudinary/url-gen';
-import {HeaderContainer, TitleHeader, LogoHolder} from './Styled/styles.jsx';
-import {FaBars} from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { HeaderContainer, AddBuddy, LogoAndTitleHolder, TitleHeader, LogoHolder, ModalButton } from './Styled/styles.jsx';
+import { FaBars } from 'react-icons/fa';
 import axios from 'axios';
-// import cactus from '../../images/pinkPot.png';
+// import logo from '../../public/images/pinkPot.png';
 
 
 
-const Header = () => {
-  const [allPlants, setAllPlants] = useState([]);
-  const [newPlant, setNewPlant] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
+const Header = ({ handleModal }) => {
 
-  const postMyPlants = (plantImageArray) => { //
-    axios.post('/plants', {
-      'myImages': plantImageArray
-    })
-    .then(results => {
-      console.log(results);
-    })
-    .catch(err => {
-      console.log('here is an error in the post request: ', err)
-    })
-  }
 
-  const handleModal = (e) => {
-    setModalOpen(!modalOpen)
-  };
 
-  useEffect(()=> {
+  useEffect(() => {
 
 
   }, []);
 
 
-    return (
-      <HeaderContainer>
-        <LogoHolder/>
+  return (
+    <HeaderContainer>
+      <LogoAndTitleHolder>
+        <LogoHolder src="images/pinkPot.png" />
         <TitleHeader> PlantBuddy </TitleHeader>
-      </HeaderContainer>
-    )
-  }
+      </LogoAndTitleHolder>
+      <AddBuddy onClick={handleModal}>Add a Plant</AddBuddy>
+      {/* <ModalButton onClick={handleModal}>Add your buddy!</ModalButton> */}
+    </HeaderContainer>
+  )
+}
 
-  export default Header;
+export default Header;

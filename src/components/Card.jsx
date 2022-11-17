@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from '@cloudinary/url-gen';
-import {HeaderContainer, TitleHeader, LogoHolder} from './Styled/styles.jsx';
-import {FaBars} from 'react-icons/fa';
+import Tilt from "react-parallax-tilt";
+import { HeaderContainer, TitleHeader, LogoHolder } from './Styled/styles.jsx';
+import { FaBars } from 'react-icons/fa';
 import axios from 'axios';
-import { CardType } from "../../Types";
+// import { CardType } from "../../Types";
 import {
   CardWrapper,
   CardImage,
@@ -14,37 +15,37 @@ import {
   CardTextBody,
   CardStatWrapper,
   CardStats,
-  LinkText
+  LinkText,
+  CardImageDiv
 } from "./Styled/Cards.styled.jsx";
-// import cactus from '../../images/pinkPot.png';
 
 
-  export const Card = () => {
-    return (
-        <CardWrapper>
-          <CardImage background={imgUrl} />
-          <CardTextWrapper>
-            {/* <CardTextDate>{date} days ago</CardTextDate> */}
-            <CardTextTitle>{title}</CardTextTitle>
-            <CardTextBody>
-              Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae
-              temporibus omnis illum maxime quod deserunt eligendi dolor
-            </CardTextBody>
-          </CardTextWrapper>
-          <CardStatWrapper>
-            {/* <CardStats>
-              <div>
-                1<sup>m</sup>
-              </div>
-              <div>read</div>
-            </CardStats> */}
-            <CardStats>
-              <LinkText href="#">website</LinkText>
-            </CardStats>
-            <CardStats>
-              <LinkText href="#">github</LinkText>
-            </CardStats>
-          </CardStatWrapper>
-        </CardWrapper>
-    );
-  };
+
+export const Card = ({ plant }) => {
+  return (
+    <Tilt>
+      <CardWrapper>
+        <CardImageDiv>
+          <CardImage src={plant.myImage} />
+        </CardImageDiv>
+        <CardTextWrapper>
+          {/* <CardTextDate>{date} days ago</CardTextDate> */}
+          <CardTextTitle>"{plant.firstName}"</CardTextTitle>
+          <CardTextTitle>{plant.commonName}</CardTextTitle>
+          {/* <CardTextTitle>{scientificName}</CardTextTitle> */}
+          <CardTextBody>
+            {plant.wikiSummary}
+          </CardTextBody>
+        </CardTextWrapper>
+        <CardStatWrapper>
+          <CardStats>
+            <span>Scientific Name: </span>
+            <LinkText> {plant.scientificName} </LinkText>
+          </CardStats>
+        </CardStatWrapper>
+      </CardWrapper>
+    </Tilt>
+  );
+};
+
+export default Card;

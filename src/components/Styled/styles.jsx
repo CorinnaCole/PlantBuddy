@@ -1,8 +1,13 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Modal, { ModalProvider } from "styled-react-modal";
 
+const MainConter = styled.div`
+box-sizing: border-box;
+display: flex;
+  margin: 0px;
+  padding: 0px;
+`;
 const HeaderContainer = styled.div`
   box-sizing: border-box;
   position: fixed;
@@ -13,10 +18,8 @@ const HeaderContainer = styled.div`
   padding-left: 40px;
   background-color: #417154;
   display: flex;
-  justify-content: space-between;
   height: 100px;
   width: 100%;
-  font-family: 'Bad Script', cursive;
   border-bottom: solid 4px #104730;
   padding-left: 25px;
 
@@ -26,14 +29,14 @@ const HeaderContainer = styled.div`
 
 const BodyDiv = styled.div`
 box-sizing: border-box;
+display: flex;
+justify-content: center;
 position: relative;
   top: 75px;
   left: 0px;
 padding: 20px;
 margin: 0;
-background-color: white;
-display: flex;
-justify-content: space-between;
+background-color: #d1e2d3;;
 height: auto;
 width: 100%;
 `
@@ -42,15 +45,36 @@ const TitleHeader = styled.h1`
   font-family: 'MuseoModerno', cursive;
   font-size: 2em;
   padding-top: 40px;
-  color: #F6F6DB;
-  margin: 0 0 15px 30px;
+  color: #F8C5CD;
+  text-shadow: 2px 2px #104730;
+  margin: 0 0 15px 0;
 `;
 
+
+const AddBuddy = styled.h3`
+  font-family: 'MuseoModerno', cursive;
+  font-size: 1.5em;
+  padding-top: 50px;
+  color: #F8C5CD;
+  text-shadow: 2px 2px #104730;
+  margin: 0 15px 15px 0;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: flex-end;
+`;
+
+const LogoAndTitleHolder = styled.div`
+box-sizing: border-box;
+padding-right: 50px;
+padding-left: 40px;
+display: flex;
+height: 100px;
+width: 100%;
+padding-left: 25px;
+
+`;
 const LogoHolder = styled.img`
-  position: fixed;
-    top: 0px;
-    left: 0px;
-  z-index: 2;
+  transform: scale(.7);
 `;
 
 const StyledModal = Modal.styled`
@@ -59,16 +83,106 @@ const StyledModal = Modal.styled`
   border-radius: 5%;
   border: solid 10px #F8C5CD;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  svg {
+    stroke: #333;
+    stroke-width: 20px;
+    fill: palevioletred;
+    font-size: 2em;
+  }
+
   background-color: white;
-  opacity: ${(props) => props.opacity};
+
   transition : all 0.3s ease-in-out;`;
 
+const ModalInnerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  `;
+const ModalButtonHolder = styled.div`
+    grid-row-start: 4;
+    display: flex;
+    justify-content: center;
 
-export {HeaderContainer, TitleHeader, BodyDiv, LogoHolder, StyledModal};
+  `;
+
+const ModalButton = styled.button`
+  color: ${props => (props.primary ? "white" : "palevioletred")};
+  background: ${props => (props.primary ? "palevioletred" : "white")};
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px 20px;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+const SubmitModal = styled.button`
+
+color: white;
+background: palevioletred;
+font-size: 20px;
+margin: 10px;
+padding: 5px 20px;
+border: 2px solid palevioletred;
+border-radius: 3px;
+`
+
+const UploadImageDiv = styled.div`
+display: flex;
+height: 150px;
+justify-content: center;
+background: lightpink;
+border: solid 2px palevioletred;
+border-radius: 5%;
+`
+const InvisiblePlaceholderUploadImageDiv = styled.div`
+display: flex;
+height: 150px;
+justify-content: center;
+background: lightpink;
+border: solid 2px palevioletred;
+border-radius: 5%;
+`
+const UploadImage = styled.img`
+  object-fit: scale-down;
+`;
+const TitleAndModalDiv = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const CloseXDiv = styled.div`
+  align-self: flex-end;
+  position: relative;
+  top: -37px;
+  left: -20px;
+`;
+
+export {
+  MainConter,
+  HeaderContainer,
+  TitleHeader,
+  AddBuddy,
+  BodyDiv,
+  LogoHolder,
+  LogoAndTitleHolder,
+  StyledModal,
+  ModalButton,
+  ModalInnerDiv,
+  ModalButtonHolder,
+  SubmitModal,
+  UploadImageDiv,
+  UploadImage,
+  InvisiblePlaceholderUploadImageDiv,
+  TitleAndModalDiv,
+  CloseXDiv
+};
 
 
+// opacity: ${(props) => props.opacity};
 // export const CardWrapper = styled.div`
 //   display: grid;
 //   grid-template-columns: 300px;

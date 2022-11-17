@@ -1,35 +1,43 @@
 import styled from "styled-components";
 
-export const CardWrapper = styled.div`
+const CardWrapper = styled.div`
   display: grid;
-  grid-template-columns: 300px;
-  grid-template-rows: 210px 210px 80px;
+  margin: 25px;
+  grid-template-columns: 375px;
+  grid-template-rows: 210px 250px 80px;
   grid-template-areas: "image" "text" "stats";
   border-radius: 18px;
   background: white;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   text-align: center;
 `;
-
-export const CardImage = styled.div<{ background: string }>`
-  grid-area: image;
-  background-image: url(${({ background }) => background});
+// { background: string }
+// background-image: url(${({ background }) => background});
+const CardImage = styled.img`
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-size: cover;
-`;
 
-export const CardTextWrapper = styled.div`
+`;
+const CardImageDiv = styled.div`
+  grid-area: image;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+`;
+const CardTextWrapper = styled.div`
   grid-area: text;
   margin: 25px;
 `;
 
-export const CardTextDate = styled.span`
+const CardTextDate = styled.span`
   color: rgb(255, 7, 110);
   font-size: 13px;
 `;
 
-export const CardTextTitle = styled.h2`
+const CardTextTitle = styled.h2`
   margin-top: 0px;
   font-size: 2rem;
   box-sizing: border-box;
@@ -51,25 +59,24 @@ export const CardTextTitle = styled.h2`
   color: transparent;
 `;
 
-export const CardTextBody = styled.p`
+const CardTextBody = styled.p`
   color: black;
   font-size: 15px;
   font-weight: 300;
 `;
 
-export const CardStatWrapper = styled.div`
+const CardStatWrapper = styled.div`
   grid-area: stats;
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr; */
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: #61827f;
+  background: #417154;
+  font-size: 1em;
 `;
 
-export const CardStats = styled.div`
+const CardStats = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +85,8 @@ export const CardStats = styled.div`
   padding: 10px;
 `;
 
-export const LinkText = styled.a`
+const LinkText = styled.a`
+font-family: 'MuseoModerno', cursive;
   color: #fff;
   text-decoration: none;
 `;
@@ -93,5 +101,6 @@ export {
   CardTextBody,
   CardStatWrapper,
   CardStats,
-  LinkText
+  LinkText,
+  CardImageDiv
 }

@@ -17,7 +17,7 @@ const plantSchema = mongoose.Schema({
   firstName: String,
   commonName: String,
   scientificName: String,
-  wikiUrl: String,
+  wikiSummary: String,
   myImage: String,
   // associatedImages: [],
 });
